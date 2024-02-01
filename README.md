@@ -1,2 +1,2 @@
 # WEALTH SYNC
-#### A Comprehensive Personal Finance Dashboard App
+A Comprehensive Personal Finance Dashboard App
