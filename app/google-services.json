@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "597006804760",
+    "project_id": "financial-planning-a030b",
+    "storage_bucket": "financial-planning-a030b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597006804760:android:c67bdaf2cb3354703c606d",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "597006804760-mk3ll42gprdkpj742q6krrhk674sc5m2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBPw6twmKJtcWQGVblA12H7iQHZMuEITFI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "597006804760-mk3ll42gprdkpj742q6krrhk674sc5m2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
