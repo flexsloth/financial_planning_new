@@ -3,20 +3,15 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".stock_tracker">
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginStart="139dp"
-        android:layout_marginTop="283dp"
-        android:layout_marginEnd="122dp"
-        android:layout_marginBottom="298dp"
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dash" />
+        app:srcCompat="@drawable/categorize" />
 </androidx.constraintlayout.widget.ConstraintLayout>
