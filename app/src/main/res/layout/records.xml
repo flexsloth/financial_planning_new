@@ -29,8 +29,9 @@
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Amount"
-                        android:layout_height="wrap_content"/>
+                        android:textColor="@color/black" />
 
                 </RelativeLayout>
 
@@ -44,6 +45,7 @@
                         android:id="@+id/amount_edt"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
+                        android:backgroundTint="@color/black"
                         android:contentDescription="@string/todo" />
 
                 </RelativeLayout>
@@ -65,8 +67,9 @@
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Type"
-                        android:layout_height="wrap_content"/>
+                        android:textColor="@color/black" />
 
                 </RelativeLayout>
 
@@ -80,6 +83,7 @@
                         android:id="@+id/type_edt"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
+                        android:backgroundTint="@color/black"
                         android:contentDescription="@string/todo" />
 
                 </RelativeLayout>
@@ -101,8 +105,9 @@
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
                         android:text="Note"
-                        android:layout_height="wrap_content"/>
+                        android:textColor="@color/black" />
 
                 </RelativeLayout>
 
@@ -116,6 +121,7 @@
                         android:id="@+id/note_edt"
                         android:layout_width="match_parent"
                         android:layout_height="48dp"
+                        android:backgroundTint="@color/black"
                         android:contentDescription="@string/todo" />
 
                 </RelativeLayout>

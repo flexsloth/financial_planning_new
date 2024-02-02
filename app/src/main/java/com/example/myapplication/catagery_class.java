@@ -7,6 +7,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -36,6 +37,10 @@ public class catagery_class extends Fragment {
     private ImageView fab,zab;
     private FirebaseAuth mAuth;
     private FirebaseUser muser;
+    private ValueEventListener query;
+    category_adapter ca;
+    private List<catagery_item_obj> dataList;
+    private RecyclerView list1,list2;
     private FirebaseDatabase mdata;
     private DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference().child("profitcat");
     @Nullable
@@ -44,24 +49,31 @@ public class catagery_class extends Fragment {
         View view =inflater.inflate(R.layout.category,container,false);
         fab = view.findViewById(R.id.addcategory_button1);
         zab = view.findViewById(R.id.addcategory_button2);
-        List<catagery_item_obj> dataList = new ArrayList<>();
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("profitcat");
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                catagery_item_obj item = snapshot.getValue(catagery_item_obj.class);
-                dataList.add(item);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(getContext(), "data not available", Toast.LENGTH_SHORT).show();
-            }
-        });
-        RecyclerView recyclerView = view.findViewById(R.id.recyclerView2);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-
-        category_adapter adapter = new category_adapter(dataList);
+        list1 = view.findViewById(R.id.recyclerView2);
+        list2 = view.findViewById(R.id.recyclerView3);
+        list1.setHasFixedSize(true);
+        list1.setLayoutManager(new LinearLayoutManager(getContext()));
+        dataList = new ArrayList<>();
+        ca = new category_adapter(dataList);
+        ArrayAdapter<catagery_item_obj> adapter=new ArrayAdapter<>(view.getContext(), R.layout.category_item);
+        list1.setAdapter(ca);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("profitcat");
+        try {
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    catagery_item_obj item = snapshot.getValue(catagery_item_obj.class);
+                    dataList.add(item);
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    Toast.makeText(getContext(), "data not available", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }catch (Exception e){
+            Toast.makeText(getContext(), ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
         recyclerView.setAdapter(adapter);
         mdata = FirebaseDatabase.getInstance();
         databaseReference = mdata.getReference().child("category");
