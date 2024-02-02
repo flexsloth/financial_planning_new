@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -17,6 +18,10 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
@@ -24,6 +29,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.auth.PhoneAuthProvider;
 
 import java.util.Objects;
+import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
 import javax.security.auth.callback.Callback;
@@ -35,7 +41,6 @@ public class registration extends AppCompatActivity {
     private ProgressDialog p;
     register_data ud;
     private FirebaseAuth mAuth;
-    private FirebaseUser muser;
     FirebaseDatabase mdata;
     DatabaseReference databaseReference;
     private EditText input;
@@ -56,11 +61,13 @@ public class registration extends AppCompatActivity {
         occupation = (EditText) findViewById(R.id.occupation);
         p = new ProgressDialog(this);
         ud = new register_data();
-        mAuth = FirebaseAuth.getInstance();
-        muser = mAuth.getCurrentUser();
-        mdata = FirebaseDatabase.getInstance();
-        mAuth.setLanguageCode("fr");
-        databaseReference = mdata.getReference();
+//        mAuth.setLanguageCode("fr");
+        try{
+            mAuth = FirebaseAuth.getInstance();
+            databaseReference = FirebaseDatabase.getInstance().getReference();
+        Toast.makeText(this, databaseReference.toString(), Toast.LENGTH_SHORT).show();}catch (Exception e){
+            Toast.makeText(this, ""+e.getMessage(), Toast.LENGTH_SHORT).show();
+        }
         bt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -95,16 +102,44 @@ public class registration extends AppCompatActivity {
                     p.setTitle("Registration");
                     p.setCanceledOnTouchOutside(false);
                     p.show();
-                    String phoneNumber = "+91" + phno.getText().toString().trim();
-                    sendVerificationCode(phoneNumber);
+                    ud.setId(generateUniqueKey());
+                    mAuth.createUserWithEmailAndPassword(ud.getEmail(),ud.getPassword()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful())
+                            {
+                                databaseReference.child(ud.getEmail()).setValue(ud).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                    @Override
+                                    public void onComplete(@NonNull Task<Void> task) {
+                                        if(task.isSuccessful()) {
+                                            p.dismiss();
+                                            Toast.makeText(getApplicationContext(), "Registration completed", Toast.LENGTH_SHORT).show();
+                                            Intent i = new Intent(getApplicationContext(), login.class);
+                                            startActivity(i);
+                                            finish();
+                                        }
+                                        else {
+                                            Toast.makeText(getApplicationContext(),""+task.getException(),Toast.LENGTH_SHORT).show();
+                                            p.dismiss();
+                                        }
+                                    }
+                                });
+                            }
+                            else
+                            {
+                                Toast.makeText(getApplicationContext(),""+task.getException(),Toast.LENGTH_SHORT).show();
+                                p.dismiss();
+                            }
+                        }
+                    });
                 } catch (Exception e) {
                     Toast.makeText(this, "error found", Toast.LENGTH_SHORT).show();
                 }
             }
         }
-
-    private void sendVerificationCode(String phoneNumber) {
-        Intent i =new Intent(getApplicationContext(),login.class);
-        startActivity(i);
+    public static String generateUniqueKey() {
+        // Generate a random UUID
+        UUID uuid = UUID.randomUUID();
+        return uuid.toString();
     }
 }

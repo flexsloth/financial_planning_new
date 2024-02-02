@@ -6,6 +6,16 @@ public class register_data {
     String Password;
     String Phoneno;
     String Age;
+    String id;
+    String Occupation;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public register_data()
     {}
@@ -57,14 +67,13 @@ public class register_data {
         Occupation = occupation;
     }
 
-    public register_data(String name, String email, String password, String phoneno, String age, String occupation) {
+    public register_data(String name, String email, String password, String phoneno, String age, String occupation,String ID) {
         Name = name;
         Email = email;
         Password = password;
         Phoneno = phoneno;
         Age = age;
         Occupation = occupation;
+        id=ID;
     }
-
-    String Occupation;
 }

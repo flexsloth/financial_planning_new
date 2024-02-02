@@ -1,195 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent">
 
     <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="411dp"
-        android:layout_height="103dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/constraintLayout2"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="100dp"
-                android:layout_marginTop="2dp"
-                android:background="@color/white"
-                android:contentDescription="@string/todo">
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/textView7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="90dp"
-                    android:layout_marginTop="56dp"
-                    android:layout_marginBottom="25dp"
-                    android:text="Income"
-                    android:textColor="@color/teal_200"
-                    android:textSize="16sp"
-                    android:textStyle="italic"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
-                <TextView
-                    android:id="@+id/textView8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="56dp"
-                    android:layout_marginEnd="90dp"
-                    android:layout_marginBottom="25dp"
-                    android:text="Expenses"
-                    android:textColor="@android:color/holo_red_light"
-                    android:textSize="16sp"
-                    android:textStyle="italic"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
 
-                <TextView
-                    android:id="@+id/textView13"
-                    android:layout_width="98dp"
-                    android:layout_height="31dp"
-                    android:layout_marginStart="70dp"
-                    android:layout_marginTop="13dp"
-                    android:layout_marginBottom="11dp"
-                    android:text="TextView"
-                    app:layout_constraintBottom_toTopOf="@+id/textView7"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Amount"
+                        android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:id="@+id/textView14"
-                    android:layout_width="101dp"
-                    android:layout_height="29dp"
-                    android:layout_marginTop="14dp"
-                    android:layout_marginEnd="71dp"
-                    android:layout_marginBottom="12dp"
-                    android:text="TextView"
-                    app:layout_constraintBottom_toTopOf="@+id/textView8"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerView"
-                android:layout_width="0dp"
-                android:layout_height="0dp" />
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/amount_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:contentDescription="@string/todo" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Type"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/type_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:contentDescription="@string/todo" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:text="Note"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_margin="10dp"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/note_edt"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:contentDescription="@string/todo" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_height="wrap_content">
+
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:id="@+id/btnCancel"
+                        android:text="Cancel"
+                        android:textAppearance="@android:style/TextAppearance.Medium"
+                        android:textColor="@android:color/white"
+                        android:background="@android:color/black"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="2"
+                    android:layout_margin="10dp"
+                    android:gravity="center"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:id="@+id/btnSave"
+                        android:text="Save"
+                        android:textAppearance="@android:style/TextAppearance.Medium"
+                        android:textColor="@android:color/white"
+                        android:background="@android:color/black"
+                        android:layout_height="wrap_content"/>
+
+                </RelativeLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="408dp"
-        android:layout_height="160dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="96dp"
-        android:hint="Description"
-        android:layout_marginEnd="2dp"
-        android:ems="10"
-        android:inputType="text"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="410dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="39dp"
-
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="406dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="1dp"
-        android:text="Categories"
-        android:textSize="26sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton2"
-        android:layout_width="80dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginBottom="104dp"
-        android:clickable="true"
-        android:contentDescription="@string/todo"
-        android:src="@android:drawable/ic_input_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton3"
-        android:layout_width="81dp"
-        android:layout_height="69dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="108dp"
-        android:clickable="true"
-        android:contentDescription="@string/todo"
-        android:src="@android:drawable/button_onoff_indicator_on"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextText2"
-        android:layout_width="212dp"
-        android:layout_height="58dp"
-        android:layout_marginStart="105dp"
-        android:layout_marginEnd="96dp"
-        android:layout_marginBottom="256dp"
-        android:ems="10"
-        android:hint="Expenditure"
-        android:inputType="text"
-        app:constraint_referenced_tags="@string/todo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="69dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="106dp"
-        android:layout_marginBottom="69dp"
-        android:text="Credit"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton2" />
-
-    <TextView
-        android:id="@+id/textView17"
-        android:layout_width="66dp"
-        android:layout_height="34dp"
-        android:layout_marginEnd="94dp"
-        android:layout_marginBottom="74dp"
-        android:text="Debit"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/floatingActionButton3" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

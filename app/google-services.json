@@ -1,36 +1,26 @@
 {
   "project_info": {
-    "project_number": "597006804760",
-    "project_id": "financial-planning-a030b",
-    "storage_bucket": "financial-planning-a030b.appspot.com"
+    "project_number": "820215092127",
+    "project_id": "financemanager-fedb8",
+    "storage_bucket": "financemanager-fedb8.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:597006804760:android:c67bdaf2cb3354703c606d",
+        "mobilesdk_app_id": "1:820215092127:android:9223b7a0e4dcd0481123aa",
         "android_client_info": {
           "package_name": "com.example.myapplication"
         }
       },
-      "oauth_client": [
-        {
-          "client_id": "597006804760-mk3ll42gprdkpj742q6krrhk674sc5m2.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
+      "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBPw6twmKJtcWQGVblA12H7iQHZMuEITFI"
+          "current_key": "AIzaSyBxbuniY11rXtvhPkznlAtupRQ20UbG4ks"
         }
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "597006804760-mk3ll42gprdkpj742q6krrhk674sc5m2.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "other_platform_oauth_client": []
         }
       }
     }
