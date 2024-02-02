@@ -6,7 +6,7 @@ A personal finance platform developed in Android Java.
 
 FinTrack is a comprehensive personal finance platform that aggregates financial data from various sources. It offers features such as budget tracking, expense categorization, investment portfolio analysis, and financial goal planning.
 
-![Unified modeling language diagram](drawable/uml.jpg)
+![Unified modeling language diagram](app/src/main/res/drawable/uml.jpg)
 
 ## Features
 
